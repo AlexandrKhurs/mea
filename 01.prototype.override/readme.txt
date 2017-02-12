@@ -72,7 +72,8 @@ INSTALLATION:
 		   (your only can use this if you have more than one product in list)
 	    d. open "Bulk actions" list at the bottom of your product list
 		e. chose one of actions ("add to category", "move to category", "delete from category")
-		f. after page reloaded, at the top of your product list choose desired category, click "Proceed"
+		f. after page reloaded, at the top of your product list choose desired category, 
+		   then click "Proceed"
 		g. check result
 		
 		h. do the same with all other add/remove/move actions
