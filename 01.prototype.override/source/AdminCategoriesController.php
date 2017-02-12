@@ -1,14 +1,13 @@
 <?php 
 /**
- * 2007-2016 PrestaShop
+ * Mass-edit Categories, the part or Mass Edit Anything (MEA) project
+ * https://github.com/AlexandrKhurs/mea
  *
  * NOTICE OF LICENSE
- *
  * This source file is distributed under GNU General Public License (GPL 3.0).
  * Please refer to https://opensource.org/licenses/GPL-3.0 for more information.
  *
  * DISCLAIMER
- * 
  * This source code is distributed "as is", with no warranty expressed or implied, 
  * and no guarantee for accuracy or applicability to any purpose. 
  * 
