@@ -17,21 +17,21 @@ PURPOSES:
 
 adds the following bulk operaions to your PrestaShop 1.6
 
-1. Products list:
-	- add selected products to specified category
-	- move selected products to specifies category
-		behaviour details:
-			- removes from all categories;
-			- adds to specified; 
-			- sets product's default category to specified;
-	- remove selected products from specified category
-		behaviour details:
-			- can't remove from the only (last) directory - error will be generated; 
-			- if specified category is default for product - set default category to 
-			  FIRST of remaining categories;
+	1. Products list:
+		- add selected products to specified category
+		- move selected products to specifies category
+			behaviour details:
+				- removes from all categories;
+				- adds to specified; 
+				- sets product's default category to specified;
+		- remove selected products from specified category
+			behaviour details:
+				- can't remove from the only (last) directory - error will be generated; 
+				- if specified category is default for product - set default category to 
+				  FIRST of remaining categories;
 			
-2. Categories list
-	- move selected categories under specifies category
+	2. Categories list
+		- move selected categories under specifies category
 	
 
 INSTALLATION:
