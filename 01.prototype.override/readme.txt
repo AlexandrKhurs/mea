@@ -36,7 +36,7 @@ adds the following bulk operaions to your PrestaShop 1.6
 
 INSTALLATION:
 	1. 	Look the SOURCE directory 
-		   for now it contains 2 files:
+		   for now it contains following files:
 				- AdminCategoriesController.php 
 				- AdminProductsController.php
 				- Category.php
