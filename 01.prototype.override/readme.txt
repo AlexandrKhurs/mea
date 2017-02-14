@@ -39,24 +39,31 @@ INSTALLATION:
 		   for now it contains 2 files:
 				- AdminCategoriesController.php 
 				- AdminProductsController.php
+				- Category.php
 		   ...but there could be more futher.
 			
 	2. 	Check your OVERRIDE/CONTROLLERS/ADMIN folder: 
 		   <path-to-prestashop-root>/override/controllers/admin/
 		   
-		   ATTENTION! 
-		   your ONLY can continue installation 
-		   IF YOU DONT LAREADY HAVE AdminCategoriesController.php, AdminProductsController.php,
-		   and any other files you can see at step 2!
+		And check your OVERRIDE/CLASSES folder
+		   <path-to-prestashop-root>/override/controllers/admin/
 		   
-		   Otherwise - DONT INSTALL THIS SCRIPT!
-		   I repeat: DONT REWRITE EXISTING FILES to avoid breaking your existing functionnality!
-		   
-		   You are alerted now, and your next steps at your own risk.
+		ATTENTION! 
+		your ONLY can continue installation if theese directories on your server
+		DOES NOT COUNTAIN ANY OF FILES listed above and distributed in SOURCE folder.
+
+		Otherwise - DONT INSTALL THIS SCRIPT!
+		I repeat: DONT REWRITE EXISTING FILES to avoid breaking your existing functionnality!
+
+		You are alerted now, and your next steps at your own risk.
 	   
-	3. 	Copy files from SOURCE directory to your <path-to-prestashop-root>/override/controllers/admin/
+	3. 	Copy files from SOURCE directory:
+		- AdminCategoriesController.php and AdminProductsController.php
+		  copy to your <path-to-prestashop-root>/override/controllers/admin/
+	  	- Category.php
+		  copy to your <path-to-prestashop-root>/override/classes/
 	
-	4.  manually delete class_index.php file located in <path-to-prestashop-root>/cache directory.
+	4.  	manually delete class_index.php file located in <path-to-prestashop-root>/cache directory.
 	
 	5. 	Test it
 		ATTENTION!
