@@ -24,9 +24,11 @@ class Category extends CategoryCore {
      * @param int $limit
      * @param bool $as_array - return string or array
      * @param bool $return_ids - return ids instead of names
+     * @param int $loop_limit - protection against forever loop if data integrity broken
      * @return string
      */
-    public static function getPath($cat_id, $separator = '/', $include_home = true, $limit = 0, $as_array = false, $return_ids = false) {
+    public static function getPath($cat_id, $separator = '/', $include_home = true, $limit = 0, 
+                                   $as_array = false, $return_ids = false, $loop_limit = 20) {
         $context = Context::getContext();
         $catname = array();
         do {
@@ -37,7 +39,8 @@ class Category extends CategoryCore {
             if($cat_id == (int)Configuration::get('PS_HOME_CATEGORY') && $include_home)
                 break;
             $cat_id = $cat->id_parent;
-        } while ($cat_id);
+            $loop_limit--;
+        } while ($cat_id && $loop_limit);
         $catname = array_reverse($catname);
         if($limit)
             array_splice($catname, $limit);
