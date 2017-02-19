@@ -35,7 +35,7 @@ class AdminCategoriesController extends AdminCategoriesControllerCore {
         if(in_array($this->action, ['movetocat_select', 'bulkmovetocat_select']))
             $output .= $this->renderCategoryChooseForm(
                     $this->l('Move to category'), 
-                    $this->l('Remove categories under this category'), 
+                    $this->l('Move categories under this category'), 
                     'categoryTo',
                     str_replace('_select', '', $this->action));
         
@@ -138,10 +138,10 @@ class AdminCategoriesController extends AdminCategoriesControllerCore {
             $this->errors[] = 'You do not have permission to edit this.';
             
         if(!count($this->errors)) {
-            $category_to = (int)Tools::getValue('categoryTo', 0);
+            $id_category_to = (int)Tools::getValue('categoryTo', 0);
             if (!is_array($this->boxes) || empty($this->boxes)) 
                 $this->errors[] = 'Select at least one category to move';
-            if (!$category_to) 
+            if (!$id_category_to) 
                 $this->errors[] = 'Select category to move to';
             
             if(!count($this->errors)) {
@@ -151,9 +151,16 @@ class AdminCategoriesController extends AdminCategoriesControllerCore {
                     foreach($this->boxes as $id_category) {
                         $category = new Category($id_category);
                         if(!Validate::isLoadedObject($category))
-                            throw new Exception('Cant load category (id='.(int)$category.')');
+                            throw new Exception('Cant load category (id='.(int)$id_category.')');
                         
-                        $category->id_parent = (int)$category_to;
+                        $category_to = new Category((int)$id_category_to);
+                        if(!Validate::isLoadedObject($category_to))
+                            throw new Exception('Cant load category_to (id='.(int)$id_category_to.')');
+                        
+                        if($category_to->nleft >= $category->nleft && $category_to->nright <= $category->nright)
+                            throw new Exception('Cant move category (id_category='.$id_category.') to itself or it\'s (sub)child');
+                        
+                        $category->id_parent = (int)$id_category_to;
                         if(!$category->update())
                             throw new Exception('cant update category (id='.$id_category.')');
                         
